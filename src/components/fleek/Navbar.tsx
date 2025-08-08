@@ -19,9 +19,11 @@ const Navbar: React.FC = () => {
           <a href="#roadmap" className="story-link">Roadmap</a>
           <a href="#how-to-buy" className="story-link">How to Buy</a>
           <a href="#faq" className="story-link">FAQ</a>
-          <Button variant="hero" size="sm" className="ml-2">
-            <Rocket className="mr-2" /> Get $FLEEK
-          </Button>
+<Button asChild variant="hero" size="sm" className="ml-2">
+  <a href="#how-to-buy">
+    <Rocket className="mr-2" /> Get $FLEEK
+  </a>
+</Button>
         </div>
 
         <button
@@ -42,9 +44,11 @@ const Navbar: React.FC = () => {
             <a href="#roadmap" onClick={() => setOpen(false)}>Roadmap</a>
             <a href="#how-to-buy" onClick={() => setOpen(false)}>How to Buy</a>
             <a href="#faq" onClick={() => setOpen(false)}>FAQ</a>
-            <Button variant="hero" size="sm" onClick={() => setOpen(false)}>
-              <Rocket className="mr-2" /> Get $FLEEK
-            </Button>
+<Button asChild variant="hero" size="sm" onClick={() => setOpen(false)}>
+  <a href="#how-to-buy">
+    <Rocket className="mr-2" /> Get $FLEEK
+  </a>
+</Button>
           </div>
         </div>
       )}
