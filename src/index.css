@@ -103,3 +103,72 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* Enhanced design tokens and utilities for Fleekcoin */
+@layer base {
+  :root {
+    /* Brand refresh */
+    --primary: 266 85% 58%; /* Fleek Purple */
+    --primary-foreground: 0 0% 100%;
+    --accent: 192 93% 49%; /* Electric Cyan */
+    --accent-foreground: 210 40% 98%;
+
+    /* Extras */
+    --brand-glow: 266 85% 58%;
+    --brand-glow-soft: 192 93% 49%;
+
+    /* Gradients & shadows */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --shadow-elegant: 0 12px 30px -10px hsl(var(--primary) / 0.35);
+    --shadow-glow: 0 0 40px hsl(var(--accent) / 0.35);
+  }
+
+  .dark {
+    --primary: 266 85% 70%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --accent: 192 93% 56%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+  .shadow-elevated {
+    box-shadow: var(--shadow-elegant);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .text-gradient {
+    background-image: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hover-scale {
+    @apply transition-transform duration-200 hover:scale-105;
+  }
+  .story-link {
+    position: relative;
+    display: inline-block;
+  }
+  .story-link::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background: hsl(var(--primary));
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  .story-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+}
